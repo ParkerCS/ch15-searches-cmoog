@@ -7,6 +7,23 @@ from class and from Ch15 of the textbook website
 # word in the provided dictionary.  If there are more
 # than one longest word, print them all.
 
+dictionary_list = []
+
+dictionary = open("dictionary.txt", "r")
+for line in dictionary:
+    dictionary_list.append(line.strip())
+
+top_length = 0
+longest_words = []
+for i in range(len(dictionary_list)):
+    if len(dictionary_list[i]) > top_length:
+        longest_words = []
+        top_length = len(dictionary_list[i])
+        longest_words.append(dictionary_list[i])
+    elif len(dictionary_list[i]) == top_length:
+        longest_words.append(dictionary_list[i])
+print(longest_words)
+
 #2.  (10pts)  Write code which finds
 # The total word count AND average word length
 # in "AliceInWonderLand.txt"
