@@ -28,6 +28,23 @@ print(longest_words)
 # The total word count AND average word length
 # in "AliceInWonderLand.txt"
 
+import re
+def split_line(line):
+    # This function takes in a line of text and returns a list of words in the line
+    return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
+alice_list = []
+file = open("AliceInWonderLand.txt", "r")
+for line in file:
+    alice_list.append(split_line(line))
+print("There are", len(alice_list), "words in Alice and Wonder Land, ", end="")
+
+index = 0
+for j in range(len(alice_list)):
+    index += len(alice_list[j])
+average_length = index / len(alice_list)
+print("with an average word length of", average_length, "letters.")
+
+
 # CHOOSE ONE OF THE FOLLOWING TWO PROBLEMS
 
 #3 (13pts)  How many times does "Cheshire" occur in"AliceInWonderLand.txt"?
