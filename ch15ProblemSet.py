@@ -60,14 +60,14 @@ print(alice_list)
 def how_many_times(input):
     index = 0
     for k in range(len(alice_list)):
-        if alice_list[k] == str(input):
+        if alice_list[k].upper() == str(input).upper():
             index += 1
     return index
 def how_many_sequence(first_word, second_word):
     index = 0
     for m in range(len(alice_list)):
-        if alice_list[m] == str(first_word) and m < len(alice_list) - 1:
-            if alice_list[m + 1] == str(second_word):
+        if alice_list[m].upper() == str(first_word).upper() and m < len(alice_list) - 1:
+            if alice_list[m + 1].upper() == str(second_word).upper():
                 index += 1
     return index
 
