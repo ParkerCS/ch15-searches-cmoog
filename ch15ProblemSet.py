@@ -12,6 +12,7 @@ dictionary_list = []
 dictionary = open("dictionary.txt", "r")
 for line in dictionary:
     dictionary_list.append(line.strip())
+dictionary.close()
 
 top_length = 0
 longest_words = []
@@ -24,6 +25,7 @@ for i in range(len(dictionary_list)):
         longest_words.append(dictionary_list[i])
 print(longest_words)
 
+
 #2.  (10pts)  Write code which finds
 # The total word count AND average word length
 # in "AliceInWonderLand.txt"
@@ -35,8 +37,12 @@ def split_line(line):
 alice_list = []
 file = open("AliceInWonderLand.txt", "r")
 for line in file:
-    alice_list.append(split_line(line))
+    file_line = split_line(line)
+    for l in range(len(file_line)):
+        alice_list.append(file_line[l])
+
 print("There are", len(alice_list), "words in Alice and Wonder Land, ", end="")
+
 
 index = 0
 for j in range(len(alice_list)):
@@ -50,6 +56,26 @@ print("with an average word length of", average_length, "letters.")
 #3 (13pts)  How many times does "Cheshire" occur in"AliceInWonderLand.txt"?
 # How many times does "Cat" occur?
 # How many times does "Cheshire" immediately followed by "Cat" occur?
+print(alice_list)
+def how_many_times(input):
+    index = 0
+    for k in range(len(alice_list)):
+        if alice_list[k] == str(input):
+            index += 1
+    return index
+def how_many_sequence(first_word, second_word):
+    index = 0
+    for m in range(len(alice_list)):
+        if alice_list[m] == str(first_word) and m < len(alice_list) - 1:
+            if alice_list[m + 1] == str(second_word):
+                index += 1
+    return index
+
+
+print("The word Cheshire appears", how_many_times("Cheshire"), "times.")
+print("The words Cat appears", how_many_times("Cat"), "times.")
+print("The words Cheshire and Cat appear in sequence", how_many_sequence("Cheshire", "Cat"), "times.")
+
 
 #### OR #####
 
