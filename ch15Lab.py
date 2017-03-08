@@ -13,7 +13,7 @@ print("---Linear Search---")
 import re
 def split_line(line):
     return re.findall('[A-Za-z]+(?:\'[A-Za-z]+)?', line)
-'''
+
 alice_chapter1 = open("AliceInWonderLand200.txt", "r")
 
 for line in alice_chapter1:
@@ -25,7 +25,7 @@ for line in alice_chapter1:
             elif k == len(dictionary_list) - 1:
                 print(line_in_file[j], "was not found.")
 alice_chapter1.close()
-'''
+
 print("--- Binary Search ---")
 def binary_search(input_key, dictionary_list):
     key = input_key.upper()
